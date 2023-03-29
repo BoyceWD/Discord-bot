@@ -1,6 +1,8 @@
 import discord
 from Conf.config import Token
 
+
+tk = Token
 client = discord.Client()
 
 @client.event
@@ -15,4 +17,4 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
-
+client.run(tk)
