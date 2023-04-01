@@ -3,8 +3,8 @@ import os
 #from Conf.config import Token
 
 
-tk = os.environ.get('BOT_TOKEN')
-client = discord.Client()
+tk = os.environ['BOT_TOKEN']
+client = discord.Client(intents=discord.Intents.default())
 
 @client.event
 async def on_ready():
