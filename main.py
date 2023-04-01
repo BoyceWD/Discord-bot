@@ -1,8 +1,9 @@
 import discord
-from Conf.config import Token
+import os
+#from Conf.config import Token
 
 
-tk = Token
+tk = os.environ.get('BOT_TOKEN')
 client = discord.Client()
 
 @client.event
