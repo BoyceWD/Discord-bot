@@ -8,6 +8,13 @@ import json
 tk = os.environ['BOT_TOKEN']
 client = discord.Client(intents=discord.Intents.default())
 
+def get_quote():
+    response = requests.get
+    ('https://zenquotes.io/api/random')
+    json_data = json.loads(response.text)
+    quote = json_data[0]['q'] + ' -' + json_data[0]['a']
+    return(quote)
+
 @client.event
 async def on_ready():
     #the 0 in {0.user} is replaced by value of client variable
