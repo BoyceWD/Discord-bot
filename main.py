@@ -1,5 +1,6 @@
 import discord
 import os
+import requests
 #from Conf.config import Token
 
 
