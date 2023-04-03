@@ -17,8 +17,7 @@ client = discord.Client(intents=discord.Intents.default())
 # and returns the string thusly:
 # "Quote text -Authors name"
 def get_quote():
-    response = requests.get
-    ('https://zenquotes.io/api/random')
+    response = requests.get('https://zenquotes.io/api/random')
     json_data = json.loads(response.text)
     quote = json_data[0]['q'] + ' -' + json_data[0]['a']
     return(quote)
@@ -34,5 +33,7 @@ async def on_message(message):
         return
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
+    if message.content.startswith('$inspire'):
+        await message.channel.send(get_quote())
 
 client.run(tk)
