@@ -8,6 +8,14 @@ import json
 tk = os.environ['BOT_TOKEN']
 client = discord.Client(intents=discord.Intents.default())
 
+
+# This function accesses a rest api 
+# retrieves a record in json format 
+# parses the content in this case 
+# there is quote data and author data
+# concatinates them as a single string 
+# and returns the string thusly:
+# "Quote text -Authors name"
 def get_quote():
     response = requests.get
     ('https://zenquotes.io/api/random')
