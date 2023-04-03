@@ -2,6 +2,7 @@ import discord
 import os
 import requests
 import json
+import random
 #from Conf.config import Token
 
 
@@ -17,6 +18,7 @@ starter_encouragements = [
     'Thing will get better.',
     'You are a good person/Bot.'
     ]
+
 def get_quote():
     # This function accesses a rest api 
     response = requests.get('https://zenquotes.io/api/random')
