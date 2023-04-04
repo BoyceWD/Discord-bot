@@ -41,9 +41,16 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    if message.content.startswith('$hello'):
+    
+    msg = message.content
+
+    quote = get_quote()
+
+    if msg.startswith('$hello'):
         await message.channel.send('Hello!')
-    if message.content.startswith('$inspire'):
-        await message.channel.send(get_quote())
+    if msg.startswith('$inspire'):
+        await message.channel.send(quote)
+    if any(word in msg for word in sad_words):
+        await message.channel.send(random.choice(starter_encouragements))
 
 client.run(tk)
