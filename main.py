@@ -24,7 +24,7 @@ def get_quote():
     response = requests.get('https://zenquotes.io/api/random')
     # retrieves a record in json format 
     json_data = json.loads(response.text)
-     # parses the content, in this case 
+    # parses the content, in this case 
     # there is quote data and author data
     # concatinates them as a single string 
     quote = json_data[0]['q'] + ' -' + json_data[0]['a']
