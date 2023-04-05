@@ -33,6 +33,14 @@ def get_quote():
     # "Quote text -Authors name"
     return(quote)
 
+def update_encouragements(encouraging_message):
+    if 'encouragements'  in db.key():
+        encouragements = db["encouragements"]
+        encouragements.append(encouraging_message)
+        db['encouragements'] = encouragements
+    else:
+        db['encouragements'] = [encouraging_message]
+
 @client.event
 async def on_ready():
     #the 0 in {0.user} is replaced by value of client variable
