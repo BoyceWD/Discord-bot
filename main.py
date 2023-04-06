@@ -69,9 +69,15 @@ async def on_message(message):
 
     options = starter_encouragements
     if 'encouragements' in db.keys():
-        options = options = db['encouragements']
-        
+        options = options + db['encouragements']
+
+
     if any(word in msg for word in sad_words):
         await message.channel.send(random.choice(starter_encouragements))
+    
+    if msg.startswith('$new'):
+        encouraging_message = msg.split('$new ',1)[1]
+        update_encouragements(encouraging_message)
+        await message.channel.send('New encouraging message added.')
 
 client.run(tk)
