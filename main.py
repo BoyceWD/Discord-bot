@@ -35,11 +35,17 @@ def get_quote():
 
 def update_encouragements(encouraging_message):
     if 'encouragements'  in db.key():
-        encouragements = db["encouragements"]
+        encouragements = db['encouragements']
         encouragements.append(encouraging_message)
         db['encouragements'] = encouragements
     else:
         db['encouragements'] = [encouraging_message]
+
+def delete_encouragements(index):
+    encouragements = db['encouragements']
+    if len(encouragements) > index:
+        del encouragements[index]
+        db['encouragements'] = encouragements
 
 @client.event
 async def on_ready():
@@ -57,8 +63,14 @@ async def on_message(message):
 
     if msg.startswith('$hello'):
         await message.channel.send('Hello!')
+
     if msg.startswith('$inspire'):
         await message.channel.send(quote)
+
+    options = starter_encouragements
+    if 'encouragements' in db.keys():
+        options = options = db['encouragements']
+        
     if any(word in msg for word in sad_words):
         await message.channel.send(random.choice(starter_encouragements))
 
