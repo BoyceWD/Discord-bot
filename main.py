@@ -80,4 +80,12 @@ async def on_message(message):
         update_encouragements(encouraging_message)
         await message.channel.send('New encouraging message added.')
 
+    if msg.startswith("$del"):
+        encouragments = []
+        if 'encouragments' in db.keys():
+            index = int(msg.split('$del',1)[1])
+            delete_encouragements(index)
+            encouragments = db['encouragments']
+        await message.channel.send(encouragments)
+
 client.run(tk)
