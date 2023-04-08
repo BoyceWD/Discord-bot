@@ -69,7 +69,7 @@ async def on_message(message):
 
     options = starter_encouragements
     if 'encouragements' in db.keys():
-        options = options + db['encouragements']
+        options = options + list(db['encouragements'])
 
 
     if any(word in msg for word in sad_words):
