@@ -34,7 +34,7 @@ def get_quote():
     return(quote)
 
 def update_encouragements(encouraging_message):
-    if 'encouragements'  in db.key():
+    if 'encouragements'  in db.keys():
         encouragements = db['encouragements']
         encouragements.append(encouraging_message)
         db['encouragements'] = encouragements
