@@ -5,3 +5,8 @@ Discord Bot Url:
 https://discord.com/api/oauth2/authorize?client_id=1090369592993533993&permissions=154619341888&scope=bot
 
 Video timestamp 2/28/2023: 4:36
+
+ToDo for 4.9.23: 
+        Check to see if encouragements db on replit is update or not, when user tries to add new message.
+        If not figure out why.
+    
