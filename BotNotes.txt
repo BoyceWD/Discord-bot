@@ -9,4 +9,9 @@ Video timestamp 2/28/2023: 4:36
 ToDo for 4.9.23: 
         Check to see if encouragements db on replit is update or not, when user tries to add new message.
         If not figure out why.
-    
+ToDO for 4.12.23:
+        Try to figure out why delete clause in on message is: 
+        a. not deleting records(is it not parsing the index given by the user?(line 86)
+        , is the delete_encrouagement function faulty (line 87), something else entirely) 
+        and 
+        b. returning an empty array.  
