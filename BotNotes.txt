@@ -11,7 +11,24 @@ ToDo for 4.9.23:
         If not figure out why.
 ToDO for 4.12.23:
         Try to figure out why delete clause in on message is: 
-        a. not deleting records(is it not parsing the index given by the user?(line 86)
+        a. not deleting records(is it not parsing the index given by the user?(line 86)  
+
+        
+
         , is the delete_encrouagement function faulty (line 87), something else entirely) 
         and 
         b. returning an empty array.  
+
+-- follow up 12:02PM 4.13.23: 
+        1. the statement on line 86 which parses the message given by user to a valid index, works when run in isolation
+
+        2. When I stepped through the code (On Replit) with the debugger the if statement on line 85 
+           "if 'encouragments' in db.keys():" seems to resolve to False, bybassing the block of code in said if statement
+           lines 86-88 aren't running. So that's a good take away.
+
+
+ToDo for 4.14.23:
+        Try to figure out the meaning of the if statement on line 85 "if 'encouragments' in db.keys():", 
+        and why it evaluates to false. 
+
+        Try to get the code block (lines 85-88) to run.
