@@ -81,11 +81,11 @@ async def on_message(message):
         await message.channel.send('New encouraging message added.')
 
     if msg.startswith("$del"):
-        encouragments = []
-        if 'encouragments' in db.keys():
+        encouragements = []
+        if 'encouragements' in db.keys():
             index = int(msg.split('$del',1)[1])
             delete_encouragements(index)
-            encouragments = db['encouragments']
-        await message.channel.send(encouragments)
+            encouragements = db['encouragements']
+        await message.channel.send(encouragements)
 
 client.run(tk)
