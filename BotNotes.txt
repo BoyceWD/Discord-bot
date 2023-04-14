@@ -32,3 +32,11 @@ ToDo for 4.14.23:
         and why it evaluates to false. 
 
         Try to get the code block (lines 85-88) to run.
+-- follow up 3:37PM 4.14.23:
+        1. When when I checked for which keys were in the replit data base, using the python shell command used was (print()db.keys), it returned
+           {'encouragements'}. When I checked to see the values in the database using (print(db.get('encouragements'))) it gave me my list of user 
+           added encouragements. So this throws my earlier hypothosis in to question. When I enter the statement ('encouragments' in db.keys()) 
+           into the same python shell it still returns false.
+
+           UPDATE 3:55PM 4.14.23: 'encouragements' was spelled incorrectly in a few different places inside the 'if msg.startswith("$del"):' 
+           clause of the on_message function! So I changed 'encouragments' to 'encouragements', and now it works!
