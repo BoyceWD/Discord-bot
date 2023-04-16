@@ -96,4 +96,15 @@ async def on_message(message):
         if 'encouragements' in db.keys():
             encouragements = db['encouragements']
         await message.channel.send(encouragements)
+
+    if msg.startswith("$responding"):
+        value = msg.split("$responding ",1)[1]
+
+        if value.lower() == 'true':
+            db['responding'] = True
+            await message.channel.send("Responding is on.")   
+
+        else:
+            db['responding'] = True
+            await message.channel.send("Responding is on.") 
 client.run(tk)
