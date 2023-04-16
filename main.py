@@ -20,6 +20,9 @@ starter_encouragements = [
     'You are a good person/Bot.'
     ]
 
+if 'responding' not in db.keys():
+    db['responding'] = True
+
 def get_quote():
     # This function accesses a rest api 
     response = requests.get('https://zenquotes.io/api/random')
@@ -67,9 +70,10 @@ async def on_message(message):
     if msg.startswith('$inspire'):
         await message.channel.send(quote)
 
-    options = starter_encouragements
-    if 'encouragements' in db.keys():
-        options = options.extend(db['encouragements'])
+    if db['responding']:
+        options = starter_encouragements
+        if 'encouragements' in db.keys():
+            options = options.extend(db['encouragements'])
 
 
     if any(word in msg for word in sad_words):
