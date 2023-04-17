@@ -105,6 +105,6 @@ async def on_message(message):
             await message.channel.send("Responding is on.")   
 
         else:
-            db['responding'] = True
-            await message.channel.send("Responding is on.") 
+            db['responding'] = False
+            await message.channel.send("Responding is off.") 
 client.run(tk)
