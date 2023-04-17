@@ -40,3 +40,21 @@ ToDo for 4.14.23:
 
            UPDATE 3:55PM 4.14.23: 'encouragements' was spelled incorrectly in a few different places inside the 'if msg.startswith("$del"):' 
            clause of the on_message function! So I changed 'encouragments' to 'encouragements', and now it works!
+
+ToDo for 4.17-18.23:
+        After indenting if statement on line 78 and replacing the argument starter_encouragements in random.choice() with options;
+        when responding is set to true, instead of responding to a message contianing a sad word, with an encouraging message 
+        discord bot returns this error in the replit console:
+
+                Traceback (most recent call last):
+                File "/home/runner/Discord-bot/venv/lib/python3.10/site-packages/discord/client.py", 
+                line 441, in _run_event
+                await coro(*args, **kwargs)
+                File "main.py", line 79, in on_message
+                await message.channel.send(random.choice(options))
+                File "/nix/store/hd4cc9rh83j291r5539hkf6qd8lgiikb-python3-3.10.8/lib/python3.10/random.py",
+                line 378, in choice
+                return seq[self._randbelow(len(seq))]
+                TypeError: object of type 'NoneType' has no len()
+
+        Figure out why.
