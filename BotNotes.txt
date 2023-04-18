@@ -58,3 +58,10 @@ ToDo for 4.17-18.23:
                 TypeError: object of type 'NoneType' has no len()
 
         Figure out why.
+-- follow up 8:21AM 4.18.23:
+        After stepping through the code with the debugger on replit, and watching the variables 
+        (the array named options in particular), I saw that on line 74 when assigned the contents of starter_encouragements
+        options is show to have the starter messages in it when I watch it's value with the debugger, until at least lines 75-76.
+        After which its value is show to be None.
+
+        So I need to figure out what happens between line 74 & 77, which voids out the value of options.
