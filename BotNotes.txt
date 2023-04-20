@@ -65,3 +65,36 @@ ToDo for 4.17-18.23:
         After which its value is show to be None.
 
         So I need to figure out what happens between line 74 & 77, which voids out the value of options.
+
+-- follow up 9:32AM 4.19.23:
+
+
+          Broken code:                      
+                if db['responding']:
+                        options = starter_encouragements
+                        if 'encouragements' in db.keys():
+                        options = options.extend(db['encouragements'])
+
+                        if any(word in msg for word in sad_words):
+                                await message.channel.send(random.choice(options))
+                Fig.1-1
+
+          Working code:
+                  if db['responding']:
+                        if 'encouragements' in db.keys():
+                        starter_encouragements.extend(db['encouragements'])
+                        randoption = random.choice(starter_encouragements)
+
+                        if any(word in msg for word in sad_words):
+                                await message.channel.send(randoption)
+                Fig.1-2                                
+-- follow up 2:16PM 4.20.23:
+        When running through the code in figure 1-1, I noticed that the options variable kept resolving to a value of 'none' 
+        after trying to add the array of user submitted encouragements from the database using .extend().
+
+        Seeing as options isn't an array, but instead a pointer to the starter_encouragements array, I checked to see if 
+        starter_encouragements was being appended; which it was. So I decided to just work directly with a starter_encouragements,
+        and pass that to random.choice(), instead of the options variable. It seemed to work. In the error message it pointed to 
+        random.choice() as the point options was evaluating to None. I don't know if random.choice(value) was taking too long for async i/o's
+        await, but I just assigned it's result to the variable randoption, which I then passed to await message.channel.send(randoption),
+        three lines down as an already resolve value.
